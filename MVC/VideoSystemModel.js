@@ -808,8 +808,8 @@ let videoSystem = (function () {
              * @param {Resource} resource 
              * @returns Objeto creado
              */
-            serieFactory(title, publication, nationality = "NaN", synopsis = "", image = "default.png", resource = new Resource(5, "example.png")) {
-                let createdSerie = new Serie(title, publication, nationality, synopsis, image, resource);
+            serieFactory(title, publication, nationality = "NaN", synopsis = "", image = "default.png",seasons=1) {
+                let createdSerie = new Serie(title, publication, nationality, synopsis, image,seasons);
                 // Comprueba la posicion de la Serie dentro de la array de producciones
                 let position = this.#getProductionPosition(createdSerie);
                 // En caso de que no exista en la array
