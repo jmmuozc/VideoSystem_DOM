@@ -7,7 +7,6 @@ class videoSystemController {
     #videoSystemView;
 
     #loadDefaultObjects() {
-        let actor_director = "";
 
         let category1 = this.#videoSystemModel.categoryFactory("Comedia", "Peliculas de comedia, destinadas a hacer reir al espectador");
 
@@ -174,11 +173,25 @@ class videoSystemController {
 
         // Lo invocamos en el constructor como primer evento ya que el resto necesitarán que la carga inicial se haya producido.
         this.onLoad();
+
+        this.onInit();
+
+        // Enlazamos handlers con la vista
+		// this.#videoSystemView.bindInit(this.handleInit);
     }
 
     onLoad = () => {
         this.#loadDefaultObjects();
     }
+
+    onInit = () => {
+		this.#videoSystemView.init(this.#videoSystemModel.CategoriesList);
+        console.log(this.#videoSystemModel.CategoriesList);
+	}
+
+    handleInit = () => {
+		this.onInit();
+	}
 }
 
 export default videoSystemController;
