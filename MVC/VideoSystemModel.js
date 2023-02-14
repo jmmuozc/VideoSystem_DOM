@@ -608,8 +608,8 @@ let videoSystem = (function () {
             assignActor(actor, ...production) {
                 if (!(actor instanceof Person)) throw new InvalidObject();
                 // Consigue la posicion del Actor dentro de la array de actores
-                let actorPosition = this.#getActorPosition(director);
-                if (actorPosition === -1) this.#ActorList.push(director);
+                let actorPosition = this.#getActorPosition(actor);
+                if (actorPosition === -1) this.#ActorList.push(actor);
                 // Por cada produccion facilitada
                 production.forEach(element => {
                     if (!(element instanceof Production)) throw new InvalidObject();

@@ -122,36 +122,50 @@ class videoSystemController {
         let person35 = this.#videoSystemModel.personFactory("Larry", "87132573V", "Leichliter", "24/5/1941");
         this.#videoSystemModel.addDirector(person35);
 
-
+        this.#videoSystemModel.addCategory(category1);
         this.#videoSystemModel.assignCategory(category1,production1,production2,production3,production4);
-        this.#videoSystemModel.assignActor(production1,person1,person2);
-        this.#videoSystemModel.assignDirector(production1,person3);
-        this.#videoSystemModel.assignActor(production2,person4,person5);
-        this.#videoSystemModel.assignDirector(production2,person4);
-        this.#videoSystemModel.assignActor(production3,person6,person7);
-        this.#videoSystemModel.assignDirector(production3,person8);
-        this.#videoSystemModel.assignActor(production4,person9,person10);
-        this.#videoSystemModel.assignDirector(production4,person11);
+        this.#videoSystemModel.assignActor(person1,production1);
+        this.#videoSystemModel.assignActor(person2,production1);
+        this.#videoSystemModel.assignDirector(person3,production1);
+        this.#videoSystemModel.assignActor(person4,production2);
+        this.#videoSystemModel.assignActor(person5,production2);
+        this.#videoSystemModel.assignDirector(person4,production2);
+        this.#videoSystemModel.assignActor(person6,production3);
+        this.#videoSystemModel.assignActor(person7,production3);
+        this.#videoSystemModel.assignDirector(person8,production3);
+        this.#videoSystemModel.assignActor(person9,production4);
+        this.#videoSystemModel.assignActor(person10,production4);
+        this.#videoSystemModel.assignDirector(person11,production4);
         
+        this.#videoSystemModel.addCategory(category2);
         this.#videoSystemModel.assignCategory(category2,production5,production6,production7,production8);
-        this.#videoSystemModel.assignActor(production5,person12,person13);
-        this.#videoSystemModel.assignDirector(production5,person14);
-        this.#videoSystemModel.assignActor(production6,person15,person16);
-        this.#videoSystemModel.assignDirector(production6,person17);
-        this.#videoSystemModel.assignActor(production7,person18,person19);
-        this.#videoSystemModel.assignDirector(production7,person20);
-        this.#videoSystemModel.assignActor(production8,person21,person22);
-        this.#videoSystemModel.assignDirector(production8,person23);
-
+        this.#videoSystemModel.assignActor(person12,production5);
+        this.#videoSystemModel.assignActor(person13,production5);
+        this.#videoSystemModel.assignDirector(person14,production5);
+        this.#videoSystemModel.assignActor(person15,production6);
+        this.#videoSystemModel.assignActor(person16,production6);
+        this.#videoSystemModel.assignDirector(person17,production6);
+        this.#videoSystemModel.assignActor(person18,production7);
+        this.#videoSystemModel.assignActor(person19,production7);
+        this.#videoSystemModel.assignDirector(person20,production7);
+        this.#videoSystemModel.assignActor(person21,production8);
+        this.#videoSystemModel.assignActor(person22,production8);
+        this.#videoSystemModel.assignDirector(person23,production8);
+        
+        this.#videoSystemModel.addCategory(category3);
         this.#videoSystemModel.assignCategory(category3,production9,production10,production11,production12);
-        this.#videoSystemModel.assignActor(production9,person24,person25);
-        this.#videoSystemModel.assignDirector(production9,person26);
-        this.#videoSystemModel.assignActor(production10,person27,person28);
-        this.#videoSystemModel.assignDirector(production10,person29);
-        this.#videoSystemModel.assignActor(production11,person30,person31);
-        this.#videoSystemModel.assignDirector(production11,person32);
-        this.#videoSystemModel.assignActor(production12,person33,person34);
-        this.#videoSystemModel.assignDirector(production12,person35);
+        this.#videoSystemModel.assignActor(person24,production9);
+        this.#videoSystemModel.assignActor(person25,production9);
+        this.#videoSystemModel.assignDirector(person26,production9);
+        this.#videoSystemModel.assignActor(person27,production10);
+        this.#videoSystemModel.assignActor(person28,production10);
+        this.#videoSystemModel.assignDirector(person29,production10);
+        this.#videoSystemModel.assignActor(person30,production11);
+        this.#videoSystemModel.assignActor(person31,production11);
+        this.#videoSystemModel.assignDirector(person32,production11);
+        this.#videoSystemModel.assignActor(person33,production12);
+        this.#videoSystemModel.assignActor(person34,production12);
+        this.#videoSystemModel.assignDirector(person35,production12);
     }
 
     constructor(videoSystemModel, videoSystemView) {
