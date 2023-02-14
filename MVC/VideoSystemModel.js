@@ -180,7 +180,16 @@ let videoSystem = (function () {
 
             // Devuelve un iterador de CategoriesList
             get CategoriesList() {
-                return this.#CategoriesList[Symbol.iterator]();
+                let array= this.#CategoriesList;
+
+                return{
+                    *[Symbol.iterator](){
+                        for (let i = 1; i < array.length; i++) {
+                            yield array[i].category;
+                            
+                        }
+                    }
+                }
             }
 
             /**

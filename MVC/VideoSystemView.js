@@ -24,14 +24,12 @@ class videoSystemView {
         for (let category of categoriesList) {
             let categoriesColumn=document.createElement("div");
             categoriesColumn.classList.add("col");
-            categoriesColumn.innerHTML=`<img src='./media/Categoria.jpg'/ width=200 height=100>
+            categoriesColumn.innerHTML=`<img src='./media/Categoria.jpg'/ width=200 height=100 id='categoryImg'>
             <h3>${category.Name}</h3>
             
             
             
             `;
-            console.log(category instanceof Category);
-            
             categoriesRow.appendChild(categoriesColumn);
         }
     }

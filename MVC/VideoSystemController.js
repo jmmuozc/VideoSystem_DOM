@@ -121,6 +121,9 @@ class videoSystemController {
         let person35 = this.#videoSystemModel.personFactory("Larry", "87132573V", "Leichliter", "24/5/1941");
         this.#videoSystemModel.addDirector(person35);
 
+        let userAdmin=this.#videoSystemModel.userFactory("Admin","Admin@gmail.com","Admin01");
+
+
         this.#videoSystemModel.addCategory(category1);
         this.#videoSystemModel.assignCategory(category1,production1,production2,production3,production4);
         this.#videoSystemModel.assignActor(person1,production1);
@@ -186,7 +189,6 @@ class videoSystemController {
 
     onInit = () => {
 		this.#videoSystemView.init(this.#videoSystemModel.CategoriesList);
-        console.log(this.#videoSystemModel.CategoriesList);
 	}
 
     handleInit = () => {
