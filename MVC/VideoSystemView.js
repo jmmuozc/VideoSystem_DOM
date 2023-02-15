@@ -1,7 +1,7 @@
 "use strict";
 class videoSystemView {
 
-
+// METER EN EL HEADER UN UL CON LAS CATEGORIAS
     constructor() {
         // Recogemos el main
         this.main = document.getElementsByTagName("main")[0];
