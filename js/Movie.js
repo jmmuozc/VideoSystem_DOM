@@ -7,7 +7,7 @@ class Movie extends Production {
     #Resource;
     #Locations = [];
 
-    constructor(title, publication, nationality = "NaN", synopsis = "", image = "default.png", resource = new Resource(5, "example.png")) {
+    constructor(title, publication, nationality = "NaN", synopsis = "", image = "default.jpg", resource = new Resource(5, "default.jpg")) {
         super(title, publication, nationality, synopsis, image);
         if (!(resource instanceof Resource)) throw new InvalidObject();
         this.#Resource = resource;

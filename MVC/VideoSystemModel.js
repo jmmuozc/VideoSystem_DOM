@@ -180,7 +180,16 @@ let videoSystem = (function () {
 
             // Devuelve un iterador de CategoriesList
             get CategoriesList() {
-                return this.#CategoriesList[Symbol.iterator]();
+                let array= this.#CategoriesList;
+
+                return{
+                    *[Symbol.iterator](){
+                        for (let i = 1; i < array.length; i++) {
+                            yield array[i].category;
+                            
+                        }
+                    }
+                }
             }
 
             /**
@@ -787,7 +796,7 @@ let videoSystem = (function () {
              * @param {Resource} resource 
              * @returns Objeto Movie Creado
              */
-            movieFactory(title, publication, nationality = "NaN", synopsis = "", image = "default.png", resource = new Resource(5, "example.png")) {
+            movieFactory(title, publication, nationality = "NaN", synopsis = "", image = "defaultProduction.jpg", resource = new Resource(5, "defaultProduction.jpg")) {
                 let createdMovie = new Movie(title, publication, nationality, synopsis, image, resource);
                 // Comprueba la posicion de la pelicula en la array de produccion
                 let position = this.#getProductionPosition(createdMovie);
@@ -808,7 +817,7 @@ let videoSystem = (function () {
              * @param {Resource} resource 
              * @returns Objeto creado
              */
-            serieFactory(title, publication, nationality = "NaN", synopsis = "", image = "default.png",seasons=1) {
+            serieFactory(title, publication, nationality = "NaN", synopsis = "", image = "defaultProduction.jpg",seasons=1) {
                 let createdSerie = new Serie(title, publication, nationality, synopsis, image,seasons);
                 // Comprueba la posicion de la Serie dentro de la array de producciones
                 let position = this.#getProductionPosition(createdSerie);
