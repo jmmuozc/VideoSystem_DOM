@@ -1,5 +1,4 @@
 "use strict";
-import Category from "../js/Category.js";
 class videoSystemView {
 
 
@@ -30,7 +29,6 @@ class videoSystemView {
             
             
             `;
-            console.log(category instanceof Category);
             
             categoriesRow.appendChild(categoriesColumn);
         }
