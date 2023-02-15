@@ -1,7 +1,6 @@
 "use strict";
 class videoSystemView {
 
-// METER EN EL HEADER UN UL CON LAS CATEGORIAS
     constructor() {
         // Recogemos el main
         this.main = document.getElementsByTagName("main")[0];
@@ -9,11 +8,14 @@ class videoSystemView {
 
 
     showCategories(categoriesList) {
+
+        if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
         // Creamos un elemento Div
         let categories = document.createElement("div");
         // Le añadimos una clase (container)
         categories.classList.add("container");
         categories.classList.add("text-center");
+        categories.setAttribute("Id", "div-categories"); categories.setAttribute("Id", "div-categories")
         this.main.appendChild(categories);
 
         let categoriesRow = document.createElement("div");
@@ -40,7 +42,7 @@ class videoSystemView {
         let productionsContainer = document.createElement("div");
         // Le añadimos una clase (container)
         productionsContainer.classList.add("container");
-        productionsContainer.classList.add("text-center");
+        productionsContainer.classList.add("text-center"); 
         this.main.appendChild(productionsContainer);
 
         for (let production of productionsList) {
@@ -58,7 +60,6 @@ class videoSystemView {
             } while (arrayExistent.includes(rng));
 
             arrayExistent.push(rng);
-            console.log(arrayProductions[rng]);
             let productionsColumn = document.createElement("div");
             productionsColumn.classList.add("col");
             productionsColumn.innerHTML = `<img src='./media/${arrayProductions[rng].Image}' width=200 height=100 id='productionImg'>

@@ -180,7 +180,7 @@ class videoSystemController {
         this.onInit();
 
         // Enlazamos handlers con la vista
-		// this.#videoSystemView.bindInit(this.handleInit);
+		this.#videoSystemView.bindInit(this.handleInit);
     }
 
     onLoad = () => {
@@ -190,11 +190,13 @@ class videoSystemController {
     onInit = () => {
 		this.#videoSystemView.showCategories(this.#videoSystemModel.CategoriesList);
 		this.#videoSystemView.rngProductions(this.#videoSystemModel.Productions);
+		this.#videoSystemView.headerCategories(this.#videoSystemModel.CategoriesList);
 	}
 
     handleInit = () => {
 		this.onInit();
 	}
+    
 }
 
 export default videoSystemController;
