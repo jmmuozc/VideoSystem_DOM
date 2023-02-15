@@ -1,7 +1,6 @@
 "use strict";
 class videoSystemView {
 
-// METER EN EL HEADER UN UL CON LAS CATEGORIAS
     constructor() {
         // Recogemos el main
         this.main = document.getElementsByTagName("main")[0];
@@ -29,25 +28,25 @@ class videoSystemView {
         }
     }
 
-    headerCategories(categoriesList){
-        let nav= document.getElementsByClassName("navbar-nav");
-        if (document.getElementById("nav-categories"))nav.removeChild(document.getElementById("nav-categories"));
+    headerCategories(categoriesList) {
+        let nav = document.getElementsByClassName("navbar-nav");
+        if (document.getElementById("nav-categories")) nav.removeChild(document.getElementById("nav-categories"));
         let categoriesIl = document.createElement("li");
         categoriesIl.classList.add("nav-item");
         categoriesIl.classList.add("dropdown");
-        categoriesIl.setAttribute("Id","nav-categories")
-        categoriesIl.innerHTML=`<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+        categoriesIl.setAttribute("Id", "nav-categories")
+        categoriesIl.innerHTML = `<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">Categorias</a>`;
-        
+
         nav[0].appendChild(categoriesIl);
         let categoriesUl = document.createElement("ul");
-        categoriesUl.setAttribute("Id","categories-ul")
+        categoriesUl.setAttribute("Id", "categories-ul")
         categoriesUl.classList.add("dropdown-menu");
         categoriesIl.appendChild(categoriesUl);
 
         for (let category of categoriesList) {
-            let categoryLink=document.createElement("li");
-            categoryLink.innerHTML=`<li><a class="dropdown-item" href="#">${category.Name}</a></li>`;
+            let categoryLink = document.createElement("li");
+            categoryLink.innerHTML = `<li><a class="dropdown-item" href="#">${category.Name}</a></li>`;
             categoriesUl.appendChild(categoryLink);
         }
     }
@@ -56,7 +55,7 @@ class videoSystemView {
         // let arrayProductions=
         let arrayProductions = [];
         let rng;
-        const numberProductions=3;
+        const numberProductions = 3;
         let arrayExistent = [];
         // Creamos un elemento Div
         let productionsContainer = document.createElement("div");
@@ -90,10 +89,20 @@ class videoSystemView {
               <a href="#" class="btn btn-primary">Ver</a>
             </div>
           </div>`
-            
+
             productionsRow.appendChild(productionsColumn);
         }
     }
+
+    
+	bindProductions(handler) {
+		$('#init').click((event) => {
+			handler();
+		});
+		$('#logo').click((event) => {
+			handler();
+		});
+	}
 
 
 }
