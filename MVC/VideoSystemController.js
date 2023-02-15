@@ -190,6 +190,7 @@ class videoSystemController {
     onInit = () => {
 		this.#videoSystemView.showCategories(this.#videoSystemModel.CategoriesList);
 		this.#videoSystemView.rngProductions(this.#videoSystemModel.Productions);
+		this.#videoSystemView.headerCategories(this.#videoSystemModel.CategoriesList);
 	}
 
     handleInit = () => {
