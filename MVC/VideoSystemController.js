@@ -168,6 +168,8 @@ class videoSystemController {
         this.#videoSystemModel.assignActor(person33,production12);
         this.#videoSystemModel.assignActor(person34,production12);
         this.#videoSystemModel.assignDirector(person35,production12);
+    
+        this.#videoSystemModel.addUser(userAdmin);
     }
 
     constructor(videoSystemModel, videoSystemView) {
