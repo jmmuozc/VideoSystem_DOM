@@ -7,11 +7,14 @@ class videoSystemView {
     }
 
     showCategories(categoriesList) {
+
+        if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
         // Creamos un elemento Div
         let categories = document.createElement("div");
         // Le añadimos una clase (container)
         categories.classList.add("container");
         categories.classList.add("text-center");
+        categories.setAttribute("Id", "div-categories"); categories.setAttribute("Id", "div-categories")
         this.main.appendChild(categories);
 
         let categoriesRow = document.createElement("div");
@@ -29,7 +32,7 @@ class videoSystemView {
     }
 
     headerCategories(categoriesList) {
-        let nav = document.getElementsByClassName("navbar-nav");
+        let nav = document.getElementById("navbarUl");
         if (document.getElementById("nav-categories")) nav.removeChild(document.getElementById("nav-categories"));
         let categoriesIl = document.createElement("li");
         categoriesIl.classList.add("nav-item");
@@ -38,7 +41,7 @@ class videoSystemView {
         categoriesIl.innerHTML = `<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">Categorias</a>`;
 
-        nav[0].appendChild(categoriesIl);
+        nav.appendChild(categoriesIl);
         let categoriesUl = document.createElement("ul");
         categoriesUl.setAttribute("Id", "categories-ul")
         categoriesUl.classList.add("dropdown-menu");
@@ -46,12 +49,15 @@ class videoSystemView {
 
         for (let category of categoriesList) {
             let categoryLink = document.createElement("li");
-            categoryLink.innerHTML = `<li><a class="dropdown-item" href="#">${category.Name}</a></li>`;
+            categoryLink.innerHTML = `<a class="dropdown-item" href="#">${category.Name}</a>`;
             categoriesUl.appendChild(categoryLink);
         }
     }
 
     rngProductions(productionsList) {
+
+        if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
+
         // let arrayProductions=
         let arrayProductions = [];
         let rng;
@@ -61,7 +67,8 @@ class videoSystemView {
         let productionsContainer = document.createElement("div");
         // Le añadimos una clase (container)
         productionsContainer.classList.add("container");
-        productionsContainer.classList.add("text-center");
+        productionsContainer.classList.add("text-center"); 
+        productionsContainer.setAttribute("Id", "div-rngProductions");
         this.main.appendChild(productionsContainer);
 
         for (let production of productionsList) {
@@ -79,7 +86,6 @@ class videoSystemView {
             } while (arrayExistent.includes(rng));
 
             arrayExistent.push(rng);
-            console.log(arrayProductions[rng]);
             let productionsColumn = document.createElement("div");
             productionsColumn.classList.add("col");
             productionsColumn.innerHTML = `<div class="card mx-auto" style="width: 18rem;">
@@ -95,14 +101,14 @@ class videoSystemView {
     }
 
     
-	bindProductions(handler) {
-		$('#init').click((event) => {
-			handler();
-		});
-		$('#logo').click((event) => {
-			handler();
-		});
-	}
+	bindInit(handler) {
+        for (let element of document.getElementsByClassName('init')) {
+            element.addEventListener("click", (event) => {
+                handler();
+            });
+           
+        }
+    }
 
 
 }
