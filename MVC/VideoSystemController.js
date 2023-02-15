@@ -27,7 +27,7 @@ class videoSystemController {
         this.#videoSystemModel.addActor(person5);
         this.#videoSystemModel.addDirector(person4);
 
-        let production3 = this.#videoSystemModel.serieFactory("Castle", "09/3/2009", "US", "Aburrido con su éxito, el reconocido escritor de novelas misteriosas Rick Castle se une a la detective de NYPD, Kate Beckett para resolver el caso de un asesino que emula a otro de su calaña recreando las escenas de asesinato de las novelas de Rick. Desafortunadamente, él y Kate disienten violentamente y pareciera que se fuesen a matar uno al otro.", "default.png", 8);
+        let production3 = this.#videoSystemModel.serieFactory("Castle", "09/3/2009", "US", "Aburrido con su éxito, el reconocido escritor de novelas misteriosas Rick Castle se une a la detective de NYPD, Kate Beckett para resolver el caso de un asesino que emula a otro de su calaña recreando las escenas de asesinato de las novelas de Rick. Desafortunadamente, él y Kate disienten violentamente y pareciera que se fuesen a matar uno al otro.", "Castle.jpg", 8);
 
         let person6 = this.#videoSystemModel.personFactory("Nathan", "24009028H", "Fillion", "27/3/1971");
         this.#videoSystemModel.addActor(person6);
@@ -36,7 +36,7 @@ class videoSystemController {
         let person8 = this.#videoSystemModel.personFactory("Andrew", "84590389T", "Marlowe", "23/12/1966");
         this.#videoSystemModel.addDirector(person8);
 
-        let production4 = this.#videoSystemModel.serieFactory("Mejor llama a Saul", "26/04/2009", "US", "Better Call Saul sigue la transformación de Jimmy McGill (Bob Odenkirk), un ex estafador que intenta convertirse en un abogado respetable, a la personalidad del extravagante abogado penalista Saul Goodman ", "default.png", 6);
+        let production4 = this.#videoSystemModel.serieFactory("Mejor llama a Saul", "26/04/2009", "US", "Better Call Saul sigue la transformación de Jimmy McGill (Bob Odenkirk), un ex estafador que intenta convertirse en un abogado respetable, a la personalidad del extravagante abogado penalista Saul Goodman ", "better-call-saul.jpg", 6);
 
         let person9 = this.#videoSystemModel.personFactory("Bob", "16868595G", "Odenkirk", "22/10/1962");
         this.#videoSystemModel.addActor(person9);
@@ -65,7 +65,7 @@ class videoSystemController {
         let person17 = this.#videoSystemModel.personFactory("Rian", "70496193C", "Johnson", "17/12/1973");
         this.#videoSystemModel.addDirector(person17);
 
-        let production7 = this.#videoSystemModel.serieFactory("You", "09/9/2009", "US", "Una historia de amor del siglo XXI sobre un obsesivo, pero brillante mánager de 20 años de una librería, quien utiliza la era digital hiperconectada para enamorar a la mujer de sus sueños.", "default.png", 4);
+        let production7 = this.#videoSystemModel.serieFactory("You", "09/9/2009", "US", "Una historia de amor del siglo XXI sobre un obsesivo, pero brillante mánager de 20 años de una librería, quien utiliza la era digital hiperconectada para enamorar a la mujer de sus sueños.", "You.jpg", 4);
 
         let person18 = this.#videoSystemModel.personFactory("Elizabeth", "74038302Z", "Lail", "13/6/1992");
         this.#videoSystemModel.addActor(person18);
@@ -74,7 +74,7 @@ class videoSystemController {
         let person20 = this.#videoSystemModel.personFactory("Marcos", "31029047T", "Siega", "08/6/1969");
         this.#videoSystemModel.addDirector(person20);
 
-        let production8 = this.#videoSystemModel.serieFactory("Alguien está mintiendo", "07/10/2021", "US", "Tras la muerte de Simon Kelleger, un estudiante de secundaria, cuatro de sus compañeros, Cooper, Bronwyn, Addy y Nate, se convierten en sospechosos de asesinato.", "default.png", 2);
+        let production8 = this.#videoSystemModel.serieFactory("Alguien está mintiendo", "07/10/2021", "US", "Tras la muerte de Simon Kelleger, un estudiante de secundaria, cuatro de sus compañeros, Cooper, Bronwyn, Addy y Nate, se convierten en sospechosos de asesinato.", "Alguien-esta-mintiendo-serie.jpg", 2);
 
         let person21 = this.#videoSystemModel.personFactory("Barrett", "05456677L", "Carnahan", "22/9/1992");
         this.#videoSystemModel.addActor(person21);
@@ -103,7 +103,7 @@ class videoSystemController {
         let person29 = this.#videoSystemModel.personFactory("Kirk", "29059056M", "Wise", "24/8/1963");
         this.#videoSystemModel.addDirector(person29);
 
-        let production11 = this.#videoSystemModel.serieFactory("The witcher", "23/11/2001", "US", "El brujo Geralt, un cazador de monstruos, trata de encontrar su lugar en un mundo en el que las personas suelen ser más malvadas que las bestias.", "default.png", 2);
+        let production11 = this.#videoSystemModel.serieFactory("The witcher", "23/11/2001", "US", "El brujo Geralt, un cazador de monstruos, trata de encontrar su lugar en un mundo en el que las personas suelen ser más malvadas que las bestias.", "The-Witcher.jpg", 2);
 
         let person30 = this.#videoSystemModel.personFactory("Joey", "89629793N", "Batey", "01/1/1989");
         this.#videoSystemModel.addActor(person30);
@@ -112,7 +112,7 @@ class videoSystemController {
         let person32 = this.#videoSystemModel.personFactory("Alik", "68157768M", "Sakharov", "17/5/1959");
         this.#videoSystemModel.addDirector(person32);
 
-        let production12 = this.#videoSystemModel.serieFactory("Hora de aventuras", "23/11/2001", "US", "Un inexperto aventurero se convierte en la clave para desentrañar un viejo misterio cuando se une a un grupo de temerarios exploradores para encontrar el legendario imperio perdido de Atlantis.", "default.png", 10);
+        let production12 = this.#videoSystemModel.serieFactory("Hora de aventuras", "23/11/2001", "US", "Hora de Aventuras es un cuento con aire moderno sobre la interminable búsqueda del heroísmo protagonizada por Finn 'el humano' y Jake 'el perro'. Amigos del alma e inseparables se embarcan una vez tras otra en misiones muy particulares e intrépidas cruzadas a lo largo y ancho de la Tierra de Ooo.", "HoraAventuras.jpeg", 10);
 
         let person33 = this.#videoSystemModel.personFactory("Pendleton", "29458740H", "Ward", "23/9/1982");
         this.#videoSystemModel.addActor(person33);
@@ -188,7 +188,8 @@ class videoSystemController {
     }
 
     onInit = () => {
-		this.#videoSystemView.init(this.#videoSystemModel.CategoriesList);
+		this.#videoSystemView.showCategories(this.#videoSystemModel.CategoriesList);
+		this.#videoSystemView.rngProductions(this.#videoSystemModel.Productions);
 	}
 
     handleInit = () => {
