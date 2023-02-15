@@ -7,6 +7,7 @@ class videoSystemView {
         this.main = document.getElementsByTagName("main")[0];
     }
 
+
     showCategories(categoriesList) {
         // Creamos un elemento Div
         let categories = document.createElement("div");
@@ -24,7 +25,7 @@ class videoSystemView {
             let categoriesColumn = document.createElement("div");
             categoriesColumn.classList.add("col");
             categoriesColumn.innerHTML = `<img src='./media/${category.Name}.jpg' width=200 height=100 id='categoryImg'>
-            <h3>${category.Name}</h3>`;
+            <h5>${category.Name}</h5>`;
             categoriesRow.appendChild(categoriesColumn);
         }
     }
@@ -61,7 +62,7 @@ class videoSystemView {
             let productionsColumn = document.createElement("div");
             productionsColumn.classList.add("col");
             productionsColumn.innerHTML = `<img src='./media/${arrayProductions[rng].Image}' width=200 height=100 id='productionImg'>
-            <h3>${arrayProductions[rng].Title}</h3>`;
+            <h5>${arrayProductions[rng].Title}</h5>`;
             productionsRow.appendChild(productionsColumn);
         }
     }
