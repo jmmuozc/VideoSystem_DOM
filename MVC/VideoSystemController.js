@@ -197,6 +197,8 @@ class videoSystemController {
         this.#videoSystemView.bindCategory(this.handleCategory);
         this.#videoSystemView.bindSeries(this.handleSeries);
         this.#videoSystemView.bindMovies(this.handleMovies);
+        this.#videoSystemView.bindActors(this.handleActors);
+        this.#videoSystemView.bindDirectors(this.handleDirectors);
     }
 
     handleInit = () => {
@@ -214,6 +216,17 @@ class videoSystemController {
     handleMovies = () => {
         this.onClickMovies();
     }
+    
+   
+    handleActors = () => {
+        this.onClickActors();
+    }
+    
+   
+    handleDirectors = () => {
+        this.onClickDirectors();
+    }
+    
 
     onClickCategory = (name) => {
         this.#videoSystemView.showCategoriesProductions(this.#videoSystemModel.getProductionsCategory(this.#videoSystemModel.getCategoryByName(name)));

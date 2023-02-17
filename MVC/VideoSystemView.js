@@ -147,46 +147,81 @@ class videoSystemView {
 
     showProductions(productionList){
 
-        let arraySerie = [];
+        let arrayProductions = [];
 
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
         if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
 
-        let serieContainer = document.createElement("div");
+        let productionContainer = document.createElement("div");
         // Le añadimos una clase (container)
-        serieContainer.classList.add("container");
-        serieContainer.classList.add("text-center"); 
-        serieContainer.setAttribute("Id", "div-Contents");
-        this.main.appendChild(serieContainer);
+        productionContainer.classList.add("container");
+        productionContainer.classList.add("text-center"); 
+        productionContainer.setAttribute("Id", "div-Contents");
+        this.main.appendChild(productionContainer);
 
-        let serieRow = document.createElement("div");
-        serieRow.classList.add("row");
+        let productionRow = document.createElement("div");
+        productionRow.classList.add("row");
 
-        serieContainer.appendChild(serieRow);
+        productionContainer.appendChild(productionRow);
 
         console.log(productionList);
-        for (let serie of productionList) {
-            arraySerie.push(serie);
+        for (let production of productionList) {
+            arrayProductions.push(production);
         }
 
-        for (let i = 0; i < arraySerie.length; i++) {
-            let serieColumn = document.createElement("div");
-            serieColumn.classList.add("col");
-            serieColumn.innerHTML = `<div class="card mx-auto" style="width: 18rem;">
-            <img src='./media/producciones/${arraySerie[i].Image}' class="card-img-top" alt="${arraySerie[i].Image}" width=250 height=150>
+        for (let i = 0; i < arrayProductions.length; i++) {
+            let productionColumn = document.createElement("div");
+            productionColumn.classList.add("col");
+            productionColumn.innerHTML = `<div class="card mx-auto" style="width: 18rem;">
+            <img src='./media/producciones/${arrayProductions[i].Image}' class="card-img-top" alt="${arrayProductions[i].Image}" width=250 height=150>
             <div class="card-body">
-              <h5 class="card-title">${arraySerie[i].Title}</h5>
+              <h5 class="card-title">${arrayProductions[i].Title}</h5>
               <a href="#" class="btn btn-primary">Ver</a>
             </div>
           </div>`
-          serieRow.appendChild(serieColumn);
+          productionRow.appendChild(productionColumn);
         }
     }
 
     
-    showPerson(actorList){
+    showPerson(personList){
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
         if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
+
+        let arrayPerson = [];
+
+        if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
+        if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
+
+        let personContainer = document.createElement("div");
+        // Le añadimos una clase (container)
+        personContainer.classList.add("container");
+        personContainer.classList.add("text-center"); 
+        personContainer.setAttribute("Id", "div-Contents");
+        this.main.appendChild(personContainer);
+
+        let personRow = document.createElement("div");
+        personRow.classList.add("row");
+
+        personContainer.appendChild(personRow);
+
+        console.log(personList);
+        for (let person of personList) {
+            arrayPerson.push(person);
+        }
+
+        for (let i = 0; i < arrayPerson.length; i++) {
+            let personColumn = document.createElement("div");
+            personColumn.classList.add("col");
+            personColumn.innerHTML = `<div class="card mx-auto" style="width: 18rem;">
+            <img src='./media/personas/${arrayPerson[i].Picture}' class="card-img-top" alt="${arrayPerson[i].Picture}" width=250 height=250>
+            <div class="card-body">
+              <h5 class="card-title">${arrayPerson[i].Name} ${arrayPerson[i].FirstLastName}</h5>
+              <a href="#" class="btn btn-primary">Ver</a>
+            </div>
+          </div>`
+          personRow.appendChild(personColumn);
+        }
     }
     
 	bindInit(handler) {
@@ -226,7 +261,7 @@ class videoSystemView {
     }
     
     
-	bindDirectos(handler) {
+	bindDirectors(handler) {
         for (let element of document.getElementsByClassName('directors')) {
             element.addEventListener("click", (event) => {
                 handler();

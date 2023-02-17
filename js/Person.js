@@ -53,7 +53,7 @@ class Person {
         this.#picture = newPicture;
     }
 
-    set LastNameTwo(lastName) {
+    set SecondLastName(lastName) {
         if (!stringPattern.test(lastName)) throw new InvalidString();
         this.#lastname2 = lastName;
     }

@@ -437,7 +437,8 @@ let videoSystem = (function () {
                 return {
                     *[Symbol.iterator]() {
                         for (let i = 0; i < actorsArray.length; i++) {
-                            yield actorsArray[i];
+                            console.log(actorsArray[i]);
+                            yield actorsArray[i].actor;
 
                         }
                     }
@@ -489,7 +490,7 @@ let videoSystem = (function () {
                 return {
                     *[Symbol.iterator]() {
                         for (let i = 0; i < directorsArray.length; i++) {
-                            yield directorsArray[i];
+                            yield directorsArray[i].director;
 
                         }
                     }
