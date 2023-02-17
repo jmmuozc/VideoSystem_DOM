@@ -759,7 +759,6 @@ let videoSystem = (function () {
             getProductionsDirector(director) {
                 if (!(director instanceof Person)) throw new InvalidObject();
                 //Guardamos la array de producciones del director facilitado
-                console.log(director);
 
                 let arrayProductionsDirector = this.#DirectorList[this.#getDirectorPosition(director)].productions;
                 // Se crea el iterador
@@ -779,7 +778,6 @@ let videoSystem = (function () {
              */
             getProductionsActor(actor) {
                 if (!(actor instanceof Person)) throw new InvalidObject();
-                console.log(actor);
                 let arrayProductionsActor = this.#ActorList[this.#getActorPosition(actor)].productions;
 
                 return {
@@ -826,7 +824,6 @@ let videoSystem = (function () {
                 position = this.#DirectorList.findIndex(compareDirectorElements);
 
                 if (position >= 0) {
-                    console.log(position);
                     return this.#DirectorList[position].director;
                 }
 

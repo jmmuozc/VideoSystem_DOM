@@ -27,7 +27,7 @@ class Production {
 
     // Devuelve la fecha de la Production
     get Publication() {
-        return this.#Nationality;
+        return this.#Publication;
     }
 
     // Devuelve la Nacionalidad de la Production

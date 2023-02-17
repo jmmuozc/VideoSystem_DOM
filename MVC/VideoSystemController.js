@@ -10,7 +10,7 @@ class videoSystemController {
 
         let category1 = this.#videoSystemModel.categoryFactory("Comedia", "Peliculas de comedia, destinadas a hacer reir al espectador");
 
-        let production1 = this.#videoSystemModel.movieFactory("Ocho apellidos vascos", "14/03/2014", "ES", "Rafa, un señorito andaluz que nunca ha salido de Sevilla, decide dejarlo todo para conquistar a Amaia, una chica vasca. Se muda al País Vasco y allí tendrá que adaptarse a un nuevo entorno y hacerse pasar por vasco para ganarse la aprobación del padre de Amaia.");
+        let production1 = this.#videoSystemModel.movieFactory("Ocho apellidos vascos", "14/03/2014", "ES", "Rafa, un señorito andaluz que nunca ha salido de Sevilla, decide dejarlo todo para conquistar a Amaia, una chica vasca. Se muda al País Vasco y allí tendrá que adaptarse a un nuevo entorno y hacerse pasar por vasco para ganarse la aprobación del padre de Amaia.","Ocho-apellidos-vascos.jpg");
 
         let person1 = this.#videoSystemModel.personFactory("Dani", "03887947G", "Rovira", "01/11/1980", "Rivas", "DaniRovira.jpg");
         this.#videoSystemModel.addActor(person1);
@@ -19,7 +19,7 @@ class videoSystemController {
         let person3 = this.#videoSystemModel.personFactory("Emilio", "31186215D", "Martínez", "30/11/1944","Lazaro","EmilioMartinez.jpg");
         this.#videoSystemModel.addDirector(person3);
 
-        let production2 = this.#videoSystemModel.movieFactory("Zoolander", "04/1/2002", "US", "Derek Zoolander ha sido el modelo masculino más cotizado durante los últimos tres años. Cuando le arrebatan la corona, decide retirarse, hasta que un diseñador le pide que desfile para él, involucrándolo al mismo tiempo en una trama de asesinato.");
+        let production2 = this.#videoSystemModel.movieFactory("Zoolander", "04/1/2002", "US", "Derek Zoolander ha sido el modelo masculino más cotizado durante los últimos tres años. Cuando le arrebatan la corona, decide retirarse, hasta que un diseñador le pide que desfile para él, involucrándolo al mismo tiempo en una trama de asesinato.","Zoolander.png");
 
         let person4 = this.#videoSystemModel.personFactory("Ben", "84718220C", "Stiller", "30/11/1965","Meara","Ben_Stiller.jpg");
         this.#videoSystemModel.addActor(person4);
@@ -47,7 +47,7 @@ class videoSystemController {
 
         let category2 = this.#videoSystemModel.categoryFactory("Drama", "Peliculas de drama, destinadas a hacer llorar al espectador");
 
-        let production5 = this.#videoSystemModel.movieFactory("Cerdo", "16/07/2021", "US", "Robin es un ermitaño atormentado por su pasado que vive en medio del bosque con la única compañía de una cerda trufera. Cuando esta le es arrebatada, Robin buscará venganza.");
+        let production5 = this.#videoSystemModel.movieFactory("Cerdo", "16/07/2021", "US", "Robin es un ermitaño atormentado por su pasado que vive en medio del bosque con la única compañía de una cerda trufera. Cuando esta le es arrebatada, Robin buscará venganza.","pig.jpg");
 
         let person12 = this.#videoSystemModel.personFactory("Lyn", "41629302S", "Mendiola", "12/12/1952","May","LynMay.jpg");
         this.#videoSystemModel.addActor(person12);
@@ -56,7 +56,7 @@ class videoSystemController {
         let person14 = this.#videoSystemModel.personFactory("Juan Carlos", "37783577M", "Daboin", "24/5/1977","Daboin","Juan-carlos.jpeg");
         this.#videoSystemModel.addDirector(person14);
 
-        let production6 = this.#videoSystemModel.movieFactory("Puñales por la espalda", "29/10/2019", "US", "Un misterio moderno en el que un grupo de investigadores ha de descubrir al responsable del asesinato del patriarca de una excéntrica familia.");
+        let production6 = this.#videoSystemModel.movieFactory("Puñales por la espalda", "29/10/2019", "US", "Un misterio moderno en el que un grupo de investigadores ha de descubrir al responsable del asesinato del patriarca de una excéntrica familia.","Knives_Out.jpg");
 
         let person15 = this.#videoSystemModel.personFactory("Chris", "97980957Z", "Robert", "13/6/1981","Evans","Chris_Evans.jpg");
         this.#videoSystemModel.addActor(person15);
@@ -85,7 +85,7 @@ class videoSystemController {
 
         let category3 = this.#videoSystemModel.categoryFactory("Aventura", "Peliculas de aventura, destinadas a hacer experimentar una aventura al espectador");
 
-        let production9 = this.#videoSystemModel.movieFactory("Viaje al centro de la tierra", "05/09/2008", "US", "Durante una expedición científica en Islandia, el científico Trevor Anderson, su sobrino Sean y Hannah, la guía que les acompaña, quedan atrapados en una cueva.");
+        let production9 = this.#videoSystemModel.movieFactory("Viaje al centro de la tierra", "05/09/2008", "US", "Durante una expedición científica en Islandia, el científico Trevor Anderson, su sobrino Sean y Hannah, la guía que les acompaña, quedan atrapados en una cueva.","Viaje_al_centro_Tierra.jpg");
 
         let person24 = this.#videoSystemModel.personFactory("Brendan", "73509482X", "James", "02/12/1968","Fraser","Brendan_Fraser.jpg");
         this.#videoSystemModel.addActor(person24);
@@ -94,7 +94,7 @@ class videoSystemController {
         let person26 = this.#videoSystemModel.personFactory("Henry", "58451547Z", "Levin", "05/6/1909","Levyn","henry-levin.jpg");
         this.#videoSystemModel.addDirector(person26);
 
-        let production10 = this.#videoSystemModel.movieFactory("Atlantis El imperio perdido", "23/11/2001", "US", "Un inexperto aventurero se convierte en la clave para desentrañar un viejo misterio cuando se une a un grupo de temerarios exploradores para encontrar el legendario imperio perdido de Atlantis.");
+        let production10 = this.#videoSystemModel.movieFactory("Atlantis El imperio perdido", "23/11/2001", "US", "Un inexperto aventurero se convierte en la clave para desentrañar un viejo misterio cuando se une a un grupo de temerarios exploradores para encontrar el legendario imperio perdido de Atlantis.","Atlantis.jfif");
 
         let person27 = this.#videoSystemModel.personFactory("Florence", "06927439T", "Stanley", "01/7/1924","Stanley","Florence_Stanley.png");
         this.#videoSystemModel.addActor(person27);
@@ -208,20 +208,24 @@ class videoSystemController {
 
     handleCategory = (name) => {
         this.onClickCategory(name);
+        this.#videoSystemView.bindProductionCard(this.HandleProduction);
     }
 
     handleSeries = () => {
         this.onClickSeries();
+        this.#videoSystemView.bindProductionCard(this.HandleProduction);
     }
    
     handleMovies = () => {
         this.onClickMovies();
+        this.#videoSystemView.bindProductionCard(this.HandleProduction);
     }
     
    
     handleActors = () => {
         this.onClickActors();
         this.#videoSystemView.bindActorCard(this.handleActorCard);
+        
     }
     
    
@@ -232,14 +236,19 @@ class videoSystemController {
    
     handleActorCard = (picture) => {
         this.onClickActorCard(picture);
+        this.#videoSystemView.bindProductionCard(this.HandleProduction);
+        
     }
    
     handleDirectorCard = (picture) => {
         this.onClickDirectorCard(picture);
+        this.#videoSystemView.bindProductionCard(this.HandleProduction);
     }
    
     HandleProduction = (title) => {
         this.onClickProductionCard(title);
+        this.#videoSystemView.bindActorCard(this.handleActorCard);
+        this.#videoSystemView.bindDirectorCard(this.handleDirectorCard);
     }
     
 
