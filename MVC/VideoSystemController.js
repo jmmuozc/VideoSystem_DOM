@@ -12,7 +12,7 @@ class videoSystemController {
 
         let production1 = this.#videoSystemModel.movieFactory("Ocho apellidos vascos", "14/03/2014", "ES", "Rafa, un señorito andaluz que nunca ha salido de Sevilla, decide dejarlo todo para conquistar a Amaia, una chica vasca. Se muda al País Vasco y allí tendrá que adaptarse a un nuevo entorno y hacerse pasar por vasco para ganarse la aprobación del padre de Amaia.");
 
-        let person1 = this.#videoSystemModel.personFactory("Dani", "03887947G", "Rovira", "01/11/1980");
+        let person1 = this.#videoSystemModel.personFactory("Dani", "03887947G", "Rovira", "01/11/1980", "Rivas", "DaniRovira.jpg");
         this.#videoSystemModel.addActor(person1);
         let person2 = this.#videoSystemModel.personFactory("Carmen", "71025412D", "Machi", "07/01/1963");
         this.#videoSystemModel.addActor(person2);
@@ -196,6 +196,7 @@ class videoSystemController {
 
         this.#videoSystemView.bindCategory(this.handleCategory);
         this.#videoSystemView.bindSeries(this.handleSeries);
+        this.#videoSystemView.bindMovies(this.handleMovies);
     }
 
     handleInit = () => {
@@ -209,13 +210,28 @@ class videoSystemController {
     handleSeries = () => {
         this.onClickSeries();
     }
+   
+    handleMovies = () => {
+        this.onClickMovies();
+    }
 
     onClickCategory = (name) => {
         this.#videoSystemView.showCategoriesProductions(this.#videoSystemModel.getProductionsCategory(this.#videoSystemModel.getCategoryByName(name)));
     }
 
     onClickSeries = () => {
-        this.#videoSystemView.showSeries(this.#videoSystemModel.Series);
+        this.#videoSystemView.showProductions(this.#videoSystemModel.Series);
+    }
+
+    onClickMovies = () => {
+        this.#videoSystemView.showProductions(this.#videoSystemModel.Movies);
+    }
+    onClickActors = () => {
+        this.#videoSystemView.showPerson(this.#videoSystemModel.Actors);
+    }
+
+    onClickDirectors = () => {
+        this.#videoSystemView.showPerson(this.#videoSystemModel.Directors);
     }
 }
 
