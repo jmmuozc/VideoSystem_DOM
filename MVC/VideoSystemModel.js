@@ -180,13 +180,13 @@ let videoSystem = (function () {
 
             // Devuelve un iterador de CategoriesList
             get CategoriesList() {
-                let array= this.#CategoriesList;
+                let array = this.#CategoriesList;
 
-                return{
-                    *[Symbol.iterator](){
+                return {
+                    *[Symbol.iterator]() {
                         for (let i = 1; i < array.length; i++) {
                             yield array[i].category;
-                            
+
                         }
                     }
                 }
@@ -344,7 +344,7 @@ let videoSystem = (function () {
                         for (let i = 0; i < productionsArray.length; i++) {
                             if (productionsArray[i] instanceof Movie) {
                                 yield productionsArray[i];
-                                
+
                             }
                         }
                     }
@@ -360,7 +360,7 @@ let videoSystem = (function () {
                         for (let i = 0; i < productionsArray.length; i++) {
                             if (productionsArray[i] instanceof Serie) {
                                 yield productionsArray[i];
-                                
+
                             }
 
                         }
@@ -437,7 +437,6 @@ let videoSystem = (function () {
                 return {
                     *[Symbol.iterator]() {
                         for (let i = 0; i < actorsArray.length; i++) {
-                            console.log(actorsArray[i]);
                             yield actorsArray[i].actor;
 
                         }
@@ -732,6 +731,8 @@ let videoSystem = (function () {
             getProductionsDirector(director) {
                 if (!(director instanceof Person)) throw new InvalidObject();
                 //Guardamos la array de producciones del director facilitado
+                console.log(director);
+
                 let arrayProductionsDirector = this.#DirectorList[this.#getDirectorPosition(director)].productions;
                 // Se crea el iterador
                 return {
@@ -750,7 +751,7 @@ let videoSystem = (function () {
              */
             getProductionsActor(actor) {
                 if (!(actor instanceof Person)) throw new InvalidObject();
-
+                console.log(actor);
                 let arrayProductionsActor = this.#ActorList[this.#getActorPosition(actor)].productions;
 
                 return {
@@ -778,29 +779,42 @@ let videoSystem = (function () {
                 }
             }
 
-            // let productionsArray = this.#ProductionsList;
-            //     // Devuelve un iterable de las producciones
-                // return {
-                //     *[Symbol.iterator]() {
-                //         for (let i = 0; i < productionsArray.length; i++) {
-                //             yield productionsArray[i];
+            getPersonByPicture(picture) {
+                // Creamos un patron para la busqueda de findIndex
+                function compareActorElements(element) {
+                    // Comprobamos que la categoria del array y del objeto introducido tenga el nombre igual
+                    return (element.actor.Picture === picture)
+                }
+                function compareDirectorElements(element) {
+                    // Comprobamos que la categoria del array y del objeto introducido tenga el nombre igual
+                    return (element.director.Picture === picture)
+                }
 
-                //         }
-                //     }
-                // }
+                let position = this.#ActorList.findIndex(compareActorElements);
 
+                if (position >= 0) {
+                    return this.#ActorList[position].actor;
+                } 
+                position = this.#DirectorList.findIndex(compareDirectorElements);
+                
+                if (position >= 0) {
+                    console.log(position);
+                    return this.#DirectorList[position].director;
+                }
 
-            getCategoryByName(name){
+            }
 
-                 // Creamos un patron para la busqueda de findIndex
-                 function compareElements(element) {
+            getCategoryByName(name) {
+
+                // Creamos un patron para la busqueda de findIndex
+                function compareElements(element) {
                     // Comprobamos que la categoria del array y del objeto introducido tenga el nombre igual
                     return (element.category.Name === name)
                 }
 
-                let position=this.#CategoriesList.findIndex(compareElements);
+                let position = this.#CategoriesList.findIndex(compareElements);
 
-                if (position>=0) {
+                if (position >= 0) {
                     return this.#CategoriesList[position].category;
                 }
 
@@ -899,8 +913,8 @@ let videoSystem = (function () {
              * @param {Resource} resource 
              * @returns Objeto creado
              */
-            serieFactory(title, publication, nationality = "NaN", synopsis = "", image = "defaultProduction.jpg",seasons=1) {
-                let createdSerie = new Serie(title, publication, nationality, synopsis, image,seasons);
+            serieFactory(title, publication, nationality = "NaN", synopsis = "", image = "defaultProduction.jpg", seasons = 1) {
+                let createdSerie = new Serie(title, publication, nationality, synopsis, image, seasons);
                 // Comprueba la posicion de la Serie dentro de la array de producciones
                 let position = this.#getProductionPosition(createdSerie);
                 // En caso de que no exista en la array

@@ -220,11 +220,21 @@ class videoSystemController {
    
     handleActors = () => {
         this.onClickActors();
+        this.#videoSystemView.bindActorCard(this.handleActorCard);
     }
     
    
     handleDirectors = () => {
         this.onClickDirectors();
+        this.#videoSystemView.bindDirectorCard(this.handleDirectorCard);
+    }
+   
+    handleActorCard = (picture) => {
+        this.onClickActorCard(picture);
+    }
+   
+    handleDirectorCard = (picture) => {
+        this.onClickDirectorCard(picture);
     }
     
 
@@ -240,11 +250,21 @@ class videoSystemController {
         this.#videoSystemView.showProductions(this.#videoSystemModel.Movies,"Peliculas");
     }
     onClickActors = () => {
-        this.#videoSystemView.showPerson(this.#videoSystemModel.Actors,"Actores");
+        this.#videoSystemView.showPersonsList(this.#videoSystemModel.Actors,"Actores");
     }
 
     onClickDirectors = () => {
-        this.#videoSystemView.showPerson(this.#videoSystemModel.Directors,"Directores");
+        this.#videoSystemView.showPersonsList(this.#videoSystemModel.Directors,"Directores");
+    }
+
+    onClickActorCard = (picture) => {
+        this.#videoSystemView.showPerson(this.#videoSystemModel.getPersonByPicture(picture),this.#videoSystemModel.getProductionsActor(this.#videoSystemModel.getPersonByPicture(picture)));
+    }
+
+    onClickDirectorCard = (picture) => {
+        console.log(picture);
+        console.log(this.#videoSystemModel.getPersonByPicture(picture));
+        this.#videoSystemView.showPerson(this.#videoSystemModel.getPersonByPicture(picture),this.#videoSystemModel.getProductionsDirector(this.#videoSystemModel.getPersonByPicture(picture)));
     }
 }
 
