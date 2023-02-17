@@ -8,13 +8,15 @@ class videoSystemView {
 
     showCategories(categoriesList) {
 
+        
+        if (document.getElementById("div-Productions")) this.main.removeChild(document.getElementById("div-Productions"));
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
         // Creamos un elemento Div
         let categories = document.createElement("div");
         // Le añadimos una clase (container)
         categories.classList.add("container");
         categories.classList.add("text-center");
-        categories.setAttribute("Id", "div-categories"); categories.setAttribute("Id", "div-categories")
+        categories.setAttribute("Id", "div-categories");
         this.main.appendChild(categories);
 
         let categoriesRow = document.createElement("div");
@@ -25,7 +27,9 @@ class videoSystemView {
         for (let category of categoriesList) {
             let categoriesColumn = document.createElement("div");
             categoriesColumn.classList.add("col");
-            categoriesColumn.innerHTML = `<img src='./media/${category.Name}.jpg' width=200 height=100 id='categoryImg'>
+            categoriesColumn.classList.add("category");
+            categoriesColumn.setAttribute("data-category", `${category.Name}`);
+            categoriesColumn.innerHTML = `<img src='./media/${category.Name}.jpg' width=200 height=100>
             <h3>${category.Name}</h3>`;
             categoriesRow.appendChild(categoriesColumn);
         }
@@ -37,18 +41,20 @@ class videoSystemView {
         let categoriesIl = document.createElement("li");
         categoriesIl.classList.add("nav-item");
         categoriesIl.classList.add("dropdown");
-        categoriesIl.setAttribute("Id", "nav-categories")
+        categoriesIl.setAttribute("Id", "nav-categories");
         categoriesIl.innerHTML = `<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">Categorias</a>`;
-
+        
         nav.appendChild(categoriesIl);
         let categoriesUl = document.createElement("ul");
-        categoriesUl.setAttribute("Id", "categories-ul")
+        categoriesUl.setAttribute("Id", "categories-ul");
         categoriesUl.classList.add("dropdown-menu");
         categoriesIl.appendChild(categoriesUl);
-
+        
         for (let category of categoriesList) {
             let categoryLink = document.createElement("li");
+            categoryLink.classList.add("category");
+            categoryLink.setAttribute("data-category", `${category.Name}`);
             categoryLink.innerHTML = `<a class="dropdown-item" href="#">${category.Name}</a>`;
             categoriesUl.appendChild(categoryLink);
         }
@@ -100,11 +106,62 @@ class videoSystemView {
         }
     }
 
+    showCategoriesProductions(category){
+
+        let arrayProductions = [];
+
+        if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
+        if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
+        if (document.getElementById("div-Productions")) this.main.removeChild(document.getElementById("div-Productions"));
+
+        let productionsContainer = document.createElement("div");
+        // Le añadimos una clase (container)
+        productionsContainer.classList.add("container");
+        productionsContainer.classList.add("text-center"); 
+        productionsContainer.setAttribute("Id", "div-Productions");
+        this.main.appendChild(productionsContainer);
+
+        let productionsRow = document.createElement("div");
+        productionsRow.classList.add("row");
+
+        productionsContainer.appendChild(productionsRow);
+
+        // console.log(category);
+        
+        for (let production of category) {
+            arrayProductions.push(production);
+        }
+
+        
+
+        for (let i = 0; i < arrayProductions.length; i++) {
+            let productionsColumn = document.createElement("div");
+            productionsColumn.classList.add("col");
+            productionsColumn.innerHTML = `<div class="card mx-auto" style="width: 18rem;">
+            <img src='./media/${arrayProductions[i].Image}' class="card-img-top" alt="${arrayProductions[i].Image}" width=250 height=150>
+            <div class="card-body">
+              <h5 class="card-title">${arrayProductions[i].Title}</h5>
+              <a href="#" class="btn btn-primary">Ver</a>
+            </div>
+          </div>`
+          productionsRow.appendChild(productionsColumn);
+        }
+    }
     
 	bindInit(handler) {
         for (let element of document.getElementsByClassName('init')) {
             element.addEventListener("click", (event) => {
                 handler();
+            });
+           
+        }
+    }
+    
+	bindCategory(handler) {
+        for (let element of document.getElementsByClassName('category')) {
+            
+            element.addEventListener("click", (event) => {
+                handler(element.dataset.category);
             });
            
         }

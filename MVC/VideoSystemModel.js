@@ -681,8 +681,13 @@ let videoSystem = (function () {
                     }
                 });
                 //Se hace el iterador
-                for (let cast of CastArray) {
-                    yield cast;
+                return {
+                    *[Symbol.iterator]() {
+                        for (let i = 0; i < CastArray.length; i++) {
+                            yield CastArray[i];
+
+                        }
+                    }
                 }
             }
 
@@ -695,8 +700,13 @@ let videoSystem = (function () {
                 //Guardamos la array de producciones del director facilitado
                 let arrayProductionsDirector = this.#DirectorList[this.#getDirectorPosition(director)].productions;
                 // Se crea el iterador
-                for (let productions of arrayProductionsDirector) {
-                    yield productions;
+                return {
+                    *[Symbol.iterator]() {
+                        for (let i = 0; i < arrayProductionsDirector.length; i++) {
+                            yield arrayProductionsDirector[i];
+
+                        }
+                    }
                 }
             }
 
@@ -709,19 +719,57 @@ let videoSystem = (function () {
 
                 let arrayProductionsActor = this.#ActorList[this.#getActorPosition(actor)].productions;
 
-                for (let productions of arrayProductionsActor) {
-                    yield productions;
+                return {
+                    *[Symbol.iterator]() {
+                        for (let i = 0; i < arrayProductionsActor.length; i++) {
+                            yield arrayProductionsActor[i];
+
+                        }
+                    }
                 }
             }
 
-            *getProductionsCategory(category) {
+            getProductionsCategory(category) {
                 if (!(category instanceof Category)) throw new InvalidObject();
                 //Guardamos la array de producciones del actor facilitado
                 let arrayProductionsCategory = this.#CategoriesList[this.#getCategoryPosition(category)].productions;
                 // Se crea el iterador
-                for (let productions of arrayProductionsCategory) {
-                    yield productions;
+                return {
+                    *[Symbol.iterator]() {
+                        for (let i = 0; i < arrayProductionsCategory.length; i++) {
+                            yield arrayProductionsCategory[i];
+
+                        }
+                    }
                 }
+            }
+
+            // let productionsArray = this.#ProductionsList;
+            //     // Devuelve un iterable de las producciones
+                // return {
+                //     *[Symbol.iterator]() {
+                //         for (let i = 0; i < productionsArray.length; i++) {
+                //             yield productionsArray[i];
+
+                //         }
+                //     }
+                // }
+
+
+            getCategoryByName(name){
+
+                 // Creamos un patron para la busqueda de findIndex
+                 function compareElements(element) {
+                    // Comprobamos que la categoria del array y del objeto introducido tenga el nombre igual
+                    return (element.category.Name === name)
+                }
+
+                let position=this.#CategoriesList.findIndex(compareElements);
+
+                if (position>=0) {
+                    return this.#CategoriesList[position].category;
+                }
+
             }
 
             /**
