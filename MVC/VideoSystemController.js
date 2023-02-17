@@ -229,22 +229,22 @@ class videoSystemController {
     
 
     onClickCategory = (name) => {
-        this.#videoSystemView.showCategoriesProductions(this.#videoSystemModel.getProductionsCategory(this.#videoSystemModel.getCategoryByName(name)));
+        this.#videoSystemView.showCategoriesProductions(this.#videoSystemModel.getProductionsCategory(this.#videoSystemModel.getCategoryByName(name)),name);
     }
 
     onClickSeries = () => {
-        this.#videoSystemView.showProductions(this.#videoSystemModel.Series);
+        this.#videoSystemView.showProductions(this.#videoSystemModel.Series,"Series");
     }
 
     onClickMovies = () => {
-        this.#videoSystemView.showProductions(this.#videoSystemModel.Movies);
+        this.#videoSystemView.showProductions(this.#videoSystemModel.Movies,"Peliculas");
     }
     onClickActors = () => {
-        this.#videoSystemView.showPerson(this.#videoSystemModel.Actors);
+        this.#videoSystemView.showPerson(this.#videoSystemModel.Actors,"Actores");
     }
 
     onClickDirectors = () => {
-        this.#videoSystemView.showPerson(this.#videoSystemModel.Directors);
+        this.#videoSystemView.showPerson(this.#videoSystemModel.Directors,"Directores");
     }
 }
 

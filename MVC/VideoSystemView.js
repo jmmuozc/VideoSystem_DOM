@@ -106,7 +106,7 @@ class videoSystemView {
         }
     }
 
-    showCategoriesProductions(category){
+    showCategoriesProductions(category,name){
 
         let arrayProductions = [];
 
@@ -118,6 +118,7 @@ class videoSystemView {
         productionsContainer.classList.add("container");
         productionsContainer.classList.add("text-center"); 
         productionsContainer.setAttribute("Id", "div-Contents");
+        productionsContainer.innerHTML=`<h1>${name}</h1>`;
         this.main.appendChild(productionsContainer);
 
         let productionsRow = document.createElement("div");
@@ -145,7 +146,7 @@ class videoSystemView {
         }
     }
 
-    showProductions(productionList){
+    showProductions(productionList,type){
 
         let arrayProductions = [];
 
@@ -157,6 +158,7 @@ class videoSystemView {
         productionContainer.classList.add("container");
         productionContainer.classList.add("text-center"); 
         productionContainer.setAttribute("Id", "div-Contents");
+        productionContainer.innerHTML=`<h1>${type}</h1>`;
         this.main.appendChild(productionContainer);
 
         let productionRow = document.createElement("div");
@@ -164,7 +166,6 @@ class videoSystemView {
 
         productionContainer.appendChild(productionRow);
 
-        console.log(productionList);
         for (let production of productionList) {
             arrayProductions.push(production);
         }
@@ -184,7 +185,7 @@ class videoSystemView {
     }
 
     
-    showPerson(personList){
+    showPerson(personList,type){
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
         if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
 
@@ -198,6 +199,7 @@ class videoSystemView {
         personContainer.classList.add("container");
         personContainer.classList.add("text-center"); 
         personContainer.setAttribute("Id", "div-Contents");
+        personContainer.innerHTML=`<h1>${type}</h1>`;
         this.main.appendChild(personContainer);
 
         let personRow = document.createElement("div");
@@ -205,7 +207,6 @@ class videoSystemView {
 
         personContainer.appendChild(personRow);
 
-        console.log(personList);
         for (let person of personList) {
             arrayPerson.push(person);
         }
@@ -274,7 +275,6 @@ class videoSystemView {
         for (let element of document.getElementsByClassName('category')) {
             
             element.addEventListener("click", (event) => {
-                console.log(element);
                 handler(element.dataset.category);
             });
            
