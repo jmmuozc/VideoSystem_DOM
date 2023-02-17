@@ -195,6 +195,7 @@ class videoSystemController {
         this.#videoSystemView.headerCategories(this.#videoSystemModel.CategoriesList);
 
         this.#videoSystemView.bindCategory(this.handleCategory);
+        this.#videoSystemView.bindSeries(this.handleSeries);
     }
 
     handleInit = () => {
@@ -205,8 +206,16 @@ class videoSystemController {
         this.onClickCategory(name);
     }
 
+    handleSeries = () => {
+        this.onClickSeries();
+    }
+
     onClickCategory = (name) => {
         this.#videoSystemView.showCategoriesProductions(this.#videoSystemModel.getProductionsCategory(this.#videoSystemModel.getCategoryByName(name)));
+    }
+
+    onClickSeries = () => {
+        this.#videoSystemView.showSeries(this.#videoSystemModel.Series);
     }
 }
 

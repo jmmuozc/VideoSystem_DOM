@@ -335,6 +335,39 @@ let videoSystem = (function () {
                 }
             }
 
+            //Devuelve todas las peliculas
+            get Movies() {
+                let productionsArray = this.#ProductionsList;
+                // Devuelve un iterable de las peliculas
+                return {
+                    *[Symbol.iterator]() {
+                        for (let i = 0; i < productionsArray.length; i++) {
+                            if (productionsArray[i] instanceof Movie) {
+                                yield productionsArray[i];
+                                
+                            }
+                        }
+                    }
+                }
+            }
+
+            //Devuelve todas las Series
+            get Series() {
+                let productionsArray = this.#ProductionsList;
+                // Devuelve un iterable de las Series
+                return {
+                    *[Symbol.iterator]() {
+                        for (let i = 0; i < productionsArray.length; i++) {
+                            if (productionsArray[i] instanceof Serie) {
+                                yield productionsArray[i];
+                                
+                            }
+
+                        }
+                    }
+                }
+            }
+
             /**
              * Añade una produccion al sistema
              * @param {Production} production 
@@ -397,7 +430,7 @@ let videoSystem = (function () {
                 return this.#ProductionsList.length;
             }
 
-            //Devuelve todos los usuarios
+            //Devuelve todos los actores
             get Actors() {
                 let actorsArray = this.#ActorList;
                 // Devuelve
@@ -666,7 +699,7 @@ let videoSystem = (function () {
              * Iterador de actores dentro de una producciones
              * @param {production} production 
              */
-            *getCast(production) {
+            getCast(production) {
                 if (!(production instanceof Production)) throw new InvalidObject();
                 // array auxiliar para contener los actores
                 let CastArray = [];
@@ -695,7 +728,7 @@ let videoSystem = (function () {
              * Iterador de producciones de un director
              * @param {Person} director 
              */
-            *getProductionsDirector(director) {
+            getProductionsDirector(director) {
                 if (!(director instanceof Person)) throw new InvalidObject();
                 //Guardamos la array de producciones del director facilitado
                 let arrayProductionsDirector = this.#DirectorList[this.#getDirectorPosition(director)].productions;
@@ -714,7 +747,7 @@ let videoSystem = (function () {
              * Iterador de producciones de un actor
              * @param {Person} actor 
              */
-            *getProductionsActor(actor) {
+            getProductionsActor(actor) {
                 if (!(actor instanceof Person)) throw new InvalidObject();
 
                 let arrayProductionsActor = this.#ActorList[this.#getActorPosition(actor)].productions;

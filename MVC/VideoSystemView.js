@@ -125,8 +125,6 @@ class videoSystemView {
         productionsRow.classList.add("row");
 
         productionsContainer.appendChild(productionsRow);
-
-        // console.log(category);
         
         for (let production of category) {
             arrayProductions.push(production);
@@ -147,9 +145,138 @@ class videoSystemView {
           productionsRow.appendChild(productionsColumn);
         }
     }
+
+    showSeries(serieList){
+
+        let arraySerie = [];
+
+        if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
+        if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
+        if (document.getElementById("div-Productions")) this.main.removeChild(document.getElementById("div-Productions"));
+        if (document.getElementById("div-serie")) this.main.removeChild(document.getElementById("div-serie"));
+
+        let serieContainer = document.createElement("div");
+        // Le añadimos una clase (container)
+        serieContainer.classList.add("container");
+        serieContainer.classList.add("text-center"); 
+        serieContainer.setAttribute("Id", "div-serie");
+        this.main.appendChild(serieContainer);
+
+        let serieRow = document.createElement("div");
+        serieRow.classList.add("row");
+
+        serieContainer.appendChild(serieRow);
+
+        console.log(serieList);
+        for (let serie of serieList) {
+            arraySerie.push(serie);
+        }
+
+        for (let i = 0; i < arraySerie.length; i++) {
+            let serieColumn = document.createElement("div");
+            serieColumn.classList.add("col");
+            serieColumn.innerHTML = `<div class="card mx-auto" style="width: 18rem;">
+            <img src='./media/${arraySerie[i].Image}' class="card-img-top" alt="${arraySerie[i].Image}" width=250 height=150>
+            <div class="card-body">
+              <h5 class="card-title">${arraySerie[i].Title}</h5>
+              <a href="#" class="btn btn-primary">Ver</a>
+            </div>
+          </div>`
+          serieRow.appendChild(serieColumn);
+        }
+    }
+
+    showMovies(MovieList){
+       
+        let arraySerie = [];
+
+        if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
+        if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
+        if (document.getElementById("div-Productions")) this.main.removeChild(document.getElementById("div-Productions"));
+        if (document.getElementById("div-serie")) this.main.removeChild(document.getElementById("div-serie"));
+
+        let serieContainer = document.createElement("div");
+        // Le añadimos una clase (container)
+        serieContainer.classList.add("container");
+        serieContainer.classList.add("text-center"); 
+        serieContainer.setAttribute("Id", "div-serie");
+        this.main.appendChild(serieContainer);
+
+        let serieRow = document.createElement("div");
+        serieRow.classList.add("row");
+
+        serieContainer.appendChild(serieRow);
+
+        console.log(serieList);
+        for (let serie of serieList) {
+            arraySerie.push(serie);
+        }
+
+        for (let i = 0; i < arraySerie.length; i++) {
+            let serieColumn = document.createElement("div");
+            serieColumn.classList.add("col");
+            serieColumn.innerHTML = `<div class="card mx-auto" style="width: 18rem;">
+            <img src='./media/${arraySerie[i].Image}' class="card-img-top" alt="${arraySerie[i].Image}" width=250 height=150>
+            <div class="card-body">
+              <h5 class="card-title">${arraySerie[i].Title}</h5>
+              <a href="#" class="btn btn-primary">Ver</a>
+            </div>
+          </div>`
+          serieRow.appendChild(serieColumn);
+        }
+    }
+
+    showActors(actorList){
+        if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
+        if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
+        if (document.getElementById("div-Productions")) this.main.removeChild(document.getElementById("div-Productions"));
+    }
+
+    showDirectors(DirectorList){
+        if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
+        if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
+        if (document.getElementById("div-Productions")) this.main.removeChild(document.getElementById("div-Productions"));
+    }
     
 	bindInit(handler) {
         for (let element of document.getElementsByClassName('init')) {
+            element.addEventListener("click", (event) => {
+                handler();
+            });
+           
+        }
+    }
+    
+	bindSeries(handler) {
+        for (let element of document.getElementsByClassName('series')) {
+            element.addEventListener("click", (event) => {
+                handler();
+            });
+           
+        }
+    }
+    
+	bindMovies(handler) {
+        for (let element of document.getElementsByClassName('movies')) {
+            element.addEventListener("click", (event) => {
+                handler();
+            });
+           
+        }
+    }
+    
+	bindActors(handler) {
+        for (let element of document.getElementsByClassName('actors')) {
+            element.addEventListener("click", (event) => {
+                handler();
+            });
+           
+        }
+    }
+    
+    
+	bindDirectos(handler) {
+        for (let element of document.getElementsByClassName('directors')) {
             element.addEventListener("click", (event) => {
                 handler();
             });
@@ -161,6 +288,7 @@ class videoSystemView {
         for (let element of document.getElementsByClassName('category')) {
             
             element.addEventListener("click", (event) => {
+                console.log(element);
                 handler(element.dataset.category);
             });
            
