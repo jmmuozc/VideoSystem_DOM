@@ -278,7 +278,7 @@ class videoSystemView {
 
     }
 
-    productionCard(production,cast){
+    showProductionCard(production,actors,directors){
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
         if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
 
@@ -292,7 +292,7 @@ class videoSystemView {
         this.main.appendChild(productionContainer);
         productionContainer.innerHTML=`
         <div class="col">
-        <img src='./media/producciones/${production.Image}' class="card-img-top" alt="${person.Image}" width=200 height=500>
+        <img src='./media/producciones/${production.Image}' class="card-img-top" alt="${production.Image}" width=200 height=500>
         </div>`
         ;
     }

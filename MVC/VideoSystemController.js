@@ -199,6 +199,7 @@ class videoSystemController {
         this.#videoSystemView.bindMovies(this.handleMovies);
         this.#videoSystemView.bindActors(this.handleActors);
         this.#videoSystemView.bindDirectors(this.handleDirectors);
+        this.#videoSystemView.bindProductionCard(this.HandleProduction);
     }
 
     handleInit = () => {
@@ -236,6 +237,10 @@ class videoSystemController {
     handleDirectorCard = (picture) => {
         this.onClickDirectorCard(picture);
     }
+   
+    HandleProduction = (title) => {
+        this.onClickProductionCard(title);
+    }
     
 
     onClickCategory = (name) => {
@@ -262,9 +267,12 @@ class videoSystemController {
     }
 
     onClickDirectorCard = (picture) => {
-        console.log(picture);
-        console.log(this.#videoSystemModel.getPersonByPicture(picture));
         this.#videoSystemView.showPerson(this.#videoSystemModel.getPersonByPicture(picture),this.#videoSystemModel.getProductionsDirector(this.#videoSystemModel.getPersonByPicture(picture)));
+    }
+
+    onClickProductionCard = (title) => {
+        this.#videoSystemView.showProductionCard(this.#videoSystemModel.getProductionByTitle(title),this.#videoSystemModel.getCast(this.#videoSystemModel.getProductionByTitle(title)),
+        this.#videoSystemModel.getDirector(this.#videoSystemModel.getProductionByTitle(title)));
     }
 }
 

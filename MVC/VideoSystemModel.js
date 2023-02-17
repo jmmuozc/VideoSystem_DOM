@@ -725,6 +725,34 @@ let videoSystem = (function () {
             }
 
             /**
+             * Iterador de actores dentro de una producciones
+             * @param {production} production 
+             */
+            getDirector(production) {
+                if (!(production instanceof Production)) throw new InvalidObject();
+                // array auxiliar para contener los actores
+                let CastArray = [];
+                let prodPosition;
+                // Por cada Director del sistema
+                this.#DirectorList.forEach(element => {
+                    // Se consigue la posicion de la produccion indicada dentro de las producciones del actor
+                    prodPosition = this.#getProductionPosition(production, element.productions);
+                    if (prodPosition > -1) {
+                        // En caso de que exista la produccion se mete el actor en el iterador
+                        CastArray.push(element);
+                    }
+                });
+                //Se hace el iterador
+                return {
+                    *[Symbol.iterator]() {
+                        for (let i = 0; i < CastArray.length; i++) {
+                            yield CastArray[i];
+                        }
+                    }
+                }
+            }
+
+            /**
              * Iterador de producciones de un director
              * @param {Person} director 
              */
@@ -794,9 +822,9 @@ let videoSystem = (function () {
 
                 if (position >= 0) {
                     return this.#ActorList[position].actor;
-                } 
+                }
                 position = this.#DirectorList.findIndex(compareDirectorElements);
-                
+
                 if (position >= 0) {
                     console.log(position);
                     return this.#DirectorList[position].director;
@@ -818,6 +846,20 @@ let videoSystem = (function () {
                     return this.#CategoriesList[position].category;
                 }
 
+            }
+
+            getProductionByTitle(title) {
+                // Creamos un patron para la busqueda de findIndex
+                function compareElements(element) {
+                    // Comprobamos que la categoria del array y del objeto introducido tenga el nombre igual
+                    return (element.Title === title)
+                }
+
+                let position = this.#ProductionsList.findIndex(compareElements);
+
+                if (position >= 0) {
+                    return this.#ProductionsList[position];
+                }
             }
 
             /**
