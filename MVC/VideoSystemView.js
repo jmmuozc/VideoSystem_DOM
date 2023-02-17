@@ -9,7 +9,7 @@ class videoSystemView {
     showCategories(categoriesList) {
 
         
-        if (document.getElementById("div-Productions")) this.main.removeChild(document.getElementById("div-Productions"));
+        if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
         // Creamos un elemento Div
         let categories = document.createElement("div");
@@ -62,7 +62,7 @@ class videoSystemView {
 
     rngProductions(productionsList) {
 
-        if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
+        if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
 
         // let arrayProductions=
         let arrayProductions = [];
@@ -74,7 +74,7 @@ class videoSystemView {
         // Le añadimos una clase (container)
         productionsContainer.classList.add("container");
         productionsContainer.classList.add("text-center"); 
-        productionsContainer.setAttribute("Id", "div-rngProductions");
+        productionsContainer.setAttribute("Id", "div-Contents");
         this.main.appendChild(productionsContainer);
 
         for (let production of productionsList) {
@@ -111,14 +111,14 @@ class videoSystemView {
         let arrayProductions = [];
 
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
-        if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
-        if (document.getElementById("div-Productions")) this.main.removeChild(document.getElementById("div-Productions"));
+        // if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
+        if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
 
         let productionsContainer = document.createElement("div");
         // Le añadimos una clase (container)
         productionsContainer.classList.add("container");
         productionsContainer.classList.add("text-center"); 
-        productionsContainer.setAttribute("Id", "div-Productions");
+        productionsContainer.setAttribute("Id", "div-Contents");
         this.main.appendChild(productionsContainer);
 
         let productionsRow = document.createElement("div");
@@ -151,15 +151,15 @@ class videoSystemView {
         let arraySerie = [];
 
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
-        if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
-        if (document.getElementById("div-Productions")) this.main.removeChild(document.getElementById("div-Productions"));
+        // if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
+        if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
         if (document.getElementById("div-serie")) this.main.removeChild(document.getElementById("div-serie"));
 
         let serieContainer = document.createElement("div");
         // Le añadimos una clase (container)
         serieContainer.classList.add("container");
         serieContainer.classList.add("text-center"); 
-        serieContainer.setAttribute("Id", "div-serie");
+        serieContainer.setAttribute("Id", "div-Contents");
         this.main.appendChild(serieContainer);
 
         let serieRow = document.createElement("div");
@@ -191,8 +191,8 @@ class videoSystemView {
         let arraySerie = [];
 
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
-        if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
-        if (document.getElementById("div-Productions")) this.main.removeChild(document.getElementById("div-Productions"));
+        // if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
+        if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
         if (document.getElementById("div-serie")) this.main.removeChild(document.getElementById("div-serie"));
 
         let serieContainer = document.createElement("div");
@@ -228,14 +228,14 @@ class videoSystemView {
 
     showActors(actorList){
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
-        if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
-        if (document.getElementById("div-Productions")) this.main.removeChild(document.getElementById("div-Productions"));
+        // if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
+        if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
     }
 
     showDirectors(DirectorList){
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
-        if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
-        if (document.getElementById("div-Productions")) this.main.removeChild(document.getElementById("div-Productions"));
+        // if (document.getElementById("div-rngProductions")) this.main.removeChild(document.getElementById("div-rngProductions"));
+        if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
     }
     
 	bindInit(handler) {
