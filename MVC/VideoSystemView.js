@@ -1,8 +1,8 @@
 "use strict";
 
-import Category from "../js/Category";
-import Person from "../js/Person";
-import Production from "../js/Production";
+import Person from "../js/Person.js";
+import Category from "../js/Category.js";
+import Production from "../js/Production.js";
 
 class videoSystemView {
 
