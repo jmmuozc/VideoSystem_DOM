@@ -1,4 +1,9 @@
 "use strict";
+
+import Category from "../js/Category";
+import Person from "../js/Person";
+import Production from "../js/Production";
+
 class videoSystemView {
 
     constructor() {
@@ -6,14 +11,15 @@ class videoSystemView {
         this.main = document.getElementsByTagName("main")[0];
     }
 
+    /**
+     * Crea un elemento div con cada una de las categorias de la lista introducida
+     * @param {Category} categoriesList 
+     */
     showCategories(categoriesList) {
-
-
         if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
         // Creamos un elemento Div
         let categories = document.createElement("div");
-        // Le añadimos una clase (container)
         categories.classList.add("container");
         categories.classList.add("text-center");
         categories.setAttribute("Id", "div-categories");
@@ -36,6 +42,10 @@ class videoSystemView {
         }
     }
 
+    /**
+     * Introduce en el header una lista desordenada con las respectivas categorias dentro de la lista
+     * @param {Category} categoriesList 
+     */
     headerCategories(categoriesList) {
         let nav = document.getElementById("navbarUl");
         if (document.getElementById("nav-categories")) nav.removeChild(document.getElementById("nav-categories"));
@@ -61,18 +71,20 @@ class videoSystemView {
         }
     }
 
+    /**
+     * Muestra en div una categoria aleatoria, hasta un número de 3 veces
+     * @param {Production} productionsList 
+     */
     rngProductions(productionsList) {
 
         if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
 
-        // let arrayProductions=
         let arrayProductions = [];
         let rng;
         const numberProductions = 3;
         let arrayExistent = [];
         // Creamos un elemento Div
         let productionsContainer = document.createElement("div");
-        // Le añadimos una clase (container)
         productionsContainer.classList.add("container");
         productionsContainer.classList.add("text-center");
         productionsContainer.setAttribute("Id", "div-Contents");
@@ -107,6 +119,11 @@ class videoSystemView {
         }
     }
 
+    /**
+     * Crea cartas de las producciones con Bootstrap de la categoria introducida y muestra el nombre de la categoria 
+     * @param {Category} category 
+     * @param {String} name 
+     */
     showCategoriesProductions(category, name) {
 
         let arrayProductions = [];
@@ -115,7 +132,6 @@ class videoSystemView {
         if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
 
         let productionsContainer = document.createElement("div");
-        // Le añadimos una clase (container)
         productionsContainer.classList.add("container");
         productionsContainer.classList.add("text-center");
         productionsContainer.setAttribute("Id", "div-Contents");
@@ -145,6 +161,11 @@ class videoSystemView {
         }
     }
 
+    /**
+     * Muestra una lista de cartas de producciones, muestra si es una serie o pelicula depende del tipo
+     * @param {Production} productionList 
+     * @param {String} type 
+     */
     showProductions(productionList, type) {
 
         let arrayProductions = [];
@@ -153,7 +174,6 @@ class videoSystemView {
         if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
 
         let productionContainer = document.createElement("div");
-        // Le añadimos una clase (container)
         productionContainer.classList.add("container");
         productionContainer.classList.add("text-center");
         productionContainer.setAttribute("Id", "div-Contents");
@@ -183,7 +203,11 @@ class videoSystemView {
         }
     }
 
-
+    /**
+     * Muestra una lista de cartas de Personas, muestra si es un actor o director depende del tipo
+     * @param {Person} personList 
+     * @param {String} type 
+     */
     showPersonsList(personList, type) {
 
         let arrayPerson = [];
@@ -192,7 +216,6 @@ class videoSystemView {
         if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
 
         let personContainer = document.createElement("div");
-        // Le añadimos una clase (container)
         personContainer.classList.add("container");
         personContainer.classList.add("text-center");
         personContainer.setAttribute("Id", "div-Contents");
@@ -222,13 +245,18 @@ class videoSystemView {
         }
     }
 
+    /**
+     * Crea un div de cartas de las producciones en las que está la persona introducida
+     * @param {Person} person 
+     * @param {Production} productionsList 
+     */
     showPerson(person, productionsList) {
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
         if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
 
         let personContainer = document.createElement("div");
         let arrayProductions = [];
-        // Le añadimos una clase (container)
+
         personContainer.classList.add("container");
         personContainer.classList.add("text-center");
         personContainer.classList.add("row");
@@ -243,7 +271,7 @@ class videoSystemView {
             ;
 
         let productionContainer = document.createElement("div");
-        // Le añadimos una clase (container)
+
         productionContainer.classList.add("container");
         productionContainer.classList.add("text-center");
         productionContainer.classList.add("col");
@@ -254,10 +282,10 @@ class videoSystemView {
 
         productionContainer.innerHTML = `<h4>${person.Name} ${person.FirstLastName}</h4>
         <h2>${person.Born.toISOString().split("T")[0]}</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam tempor tempor. Vivamus libero mi, cursus id ullamcorper vitae, commodo nec erat. Proin iaculis odio sit amet quam aliquet, et rhoncus mi dignissim. Vestibulum sed justo nec diam mollis finibus elementum et felis. Sed lobortis risus ac tellus auctor ullamcorper.</p>`;
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam tempor tempor. 
+        Vivamus libero mi, cursus id ullamcorper vitae, commodo nec erat. Proin iaculis odio sit amet quam aliquet, 
+        et rhoncus mi dignissim. Vestibulum sed justo nec diam mollis finibus elementum et felis. Sed lobortis risus ac tellus auctor ullamcorper.</p>`;
 
-
-        // No se mete junto con el inner html
         personContainer.appendChild(productionContainer);
 
         let productionsRow = document.createElement("div");
@@ -281,6 +309,12 @@ class videoSystemView {
 
     }
 
+    /**
+     * Muestra un div de la producción introducida y añade los actores y directores participantes
+     * @param {Production} production 
+     * @param {Person} actors 
+     * @param {Person} directors 
+     */
     showProductionCard(production, actors, directors) {
         if (document.getElementById("div-categories")) this.main.removeChild(document.getElementById("div-categories"));
         if (document.getElementById("div-Contents")) this.main.removeChild(document.getElementById("div-Contents"));
@@ -288,7 +322,7 @@ class videoSystemView {
         let productionContainer = document.createElement("div");
         let arrayActors = [];
         let arrayDirectors = [];
-        // Le añadimos una clase (container)
+
         productionContainer.classList.add("container");
         productionContainer.classList.add("text-center");
         productionContainer.classList.add("row");
@@ -302,7 +336,7 @@ class videoSystemView {
 
 
         let productionInfoContainer = document.createElement("div");
-        // Le añadimos una clase (container)
+
         productionInfoContainer.classList.add("container");
         productionInfoContainer.classList.add("text-center");
         productionInfoContainer.classList.add("col");
@@ -354,6 +388,10 @@ class videoSystemView {
 
     }
 
+    /**
+     * Funcion que añade un evento a los elementos con la clase Init
+     * @param {Function} handler 
+     */
     bindInit(handler) {
         for (let element of document.getElementsByClassName('init')) {
             element.addEventListener("click", (event) => {
@@ -363,6 +401,10 @@ class videoSystemView {
         }
     }
 
+    /**
+     * Funcion que añade un evento a los elementos con la clase Series
+     * @param {Function} handler 
+     */
     bindSeries(handler) {
         for (let element of document.getElementsByClassName('series')) {
             element.addEventListener("click", (event) => {
@@ -372,6 +414,10 @@ class videoSystemView {
         }
     }
 
+    /**
+     * Funcion que añade un evento a los elementos con la clase Movies
+     * @param {Function} handler 
+     */
     bindMovies(handler) {
         for (let element of document.getElementsByClassName('movies')) {
             element.addEventListener("click", (event) => {
@@ -381,6 +427,10 @@ class videoSystemView {
         }
     }
 
+    /**
+     * Funcion que añade un evento a los elementos con la clase Actors
+     * @param {Function} handler 
+     */
     bindActors(handler) {
         for (let element of document.getElementsByClassName('actors')) {
             element.addEventListener("click", (event) => {
@@ -391,6 +441,10 @@ class videoSystemView {
     }
 
 
+    /**
+     * Funcion que añade un evento a los elementos con la clase Directors
+     * @param {Function} handler 
+     */
     bindDirectors(handler) {
         for (let element of document.getElementsByClassName('directors')) {
             element.addEventListener("click", (event) => {
@@ -400,7 +454,10 @@ class videoSystemView {
         }
     }
 
-
+    /**
+     * Funcion que añade un evento a los elementos con la clase person-Actores
+     * @param {Function} handler 
+     */
     bindActorCard(handler) {
         for (let element of document.getElementsByClassName('person-Actores')) {
             element.addEventListener("click", (event) => {
@@ -410,6 +467,10 @@ class videoSystemView {
         }
     }
 
+    /**
+     * Funcion que añade un evento a los elementos con la clase person-Directores
+     * @param {Function} handler 
+     */
     bindDirectorCard(handler) {
         for (let element of document.getElementsByClassName('person-Directores')) {
             element.addEventListener("click", (event) => {
@@ -419,7 +480,10 @@ class videoSystemView {
         }
     }
 
-
+    /**
+     * Funcion que añade un evento a los elementos con la clase production-btn
+     * @param {Function} handler 
+     */
     bindProductionCard(handler) {
         for (let element of document.getElementsByClassName('production-btn')) {
             element.addEventListener("click", (event) => {
@@ -429,15 +493,10 @@ class videoSystemView {
         }
     }
 
-    bindMovieCard(handler) {
-        for (let element of document.getElementsByClassName('production-btn')) {
-            element.addEventListener("click", (event) => {
-                handler(element.dataset.production);
-            });
-
-        }
-    }
-
+    /**
+     * Funcion que añade un evento a los elementos con la clase category
+     * @param {Function} handler 
+     */
     bindCategory(handler) {
         for (let element of document.getElementsByClassName('category')) {
 
